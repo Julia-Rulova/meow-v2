@@ -1,0 +1,27 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    :root {
+        --background: #fafafa;
+
+        --primary: #FF8484;
+        --color-primary-500: 255 132 132;
+
+        --color: #001a34
+    }
+}
+
+@layer base {
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        font-family: 'Lato', sans-serif;
+        color: var(--color)
+    }
+}

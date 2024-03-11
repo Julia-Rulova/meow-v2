@@ -12,7 +12,7 @@
     </UFormGroup>
 
     <UFormGroup label="Описание" name="descr">
-      <UInput v-model="state.descr" />
+      <UTextarea v-model="state.descr" />
     </UFormGroup>
 
     <UFormGroup label="Цена" name="price">
@@ -32,7 +32,7 @@ import { z } from "zod";
 import type { FormSubmitEvent } from "#ui/types";
 
 const schema = z.object({
-  name: z.string().min(0, "Введите имя котика"),
+  name: z.string().min(1, "Введите имя котика"),
   descr: z.string().min(10, "Введите описание котика"),
   price: z.number().min(0, "Заполните это поле"),
   img: z.string().url("Вы ввели некорректную ссылку"),
@@ -43,7 +43,7 @@ type Schema = z.output<typeof schema>;
 const state = reactive({
   name: "",
   descr: "",
-  price: "",
+  price: 0,
   img: "",
 });
 
@@ -52,4 +52,3 @@ async function onSubmit(event: FormSubmitEvent<Schema>) {
   console.log(event.data);
 }
 </script>
-

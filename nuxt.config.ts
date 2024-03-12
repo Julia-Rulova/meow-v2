@@ -2,29 +2,30 @@
 export default defineNuxtConfig({
   devtools: { enabled: false },
   modules: [
-    '@nuxt/ui',
-    '@nuxt/image',
-    '@nuxtjs/tailwindcss',
-    'shadcn-nuxt',
-    'nuxt-icons',
-    '@pinia/nuxt',
+    "@nuxt/ui",
+    "@nuxt/image",
+    "@nuxtjs/tailwindcss",
+    "shadcn-nuxt",
+    "nuxt-icons",
+    "@pinia/nuxt",
+    "radix-vue/nuxt",
     [
-      '@nuxtjs/google-fonts',
+      "@nuxtjs/google-fonts",
       {
         families: {
           Lato: {
             wght: [300, 500, 700],
-            ital: [300]
-          }
-        }
-      }
+            ital: [300],
+          },
+        },
+      },
     ],
   ],
   shadcn: {
-    prefix: 'Ui',
-    componentDir: './components/ui'
+    prefix: "Ui",
+    componentDir: "./components/ui",
   },
   pinia: {
-    storesDirs: ['./store/**'],
+    storesDirs: ["./store/**"],
   },
-})
+});

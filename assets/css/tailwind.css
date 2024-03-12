@@ -3,25 +3,94 @@
 @tailwind utilities;
 
 @layer base {
-    :root {
-        --background: #fafafa;
+  :root {
+    --color: #001a34;
 
-        --primary: #FF8484;
-        --color-primary-500: 255 132 132;
+    --background: #fafafa;
+    --foreground: 240 10% 3.9%;
 
-        --color: #001a34
-    }
+    --muted: 240 4.8% 95.9%;
+    --muted-foreground: 240 3.8% 46.1%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 240 10% 3.9%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 240 10% 3.9%;
+
+    --border: 240 5.9% 90%;
+    --input: 240 5.9% 90%;
+
+    --primary: #ff8484;
+    --primary-foreground: 0 0% 98%;
+
+    --secondary: 240 4.8% 95.9%;
+    --secondary-foreground: 240 5.9% 10%;
+
+    --accent: 240 4.8% 95.9%;
+    --accent-foreground: 240 5.9% 10%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+
+    --ring: 240 10% 3.9%;
+
+    --radius: 0.5rem;
+
+    --color-primary-50: 255 132 132;
+    --color-primary-100: 255 132 132;
+    --color-primary-200: 255 132 132;
+    --color-primary-300: 255 132 132;
+    --color-primary-400: 255 132 132;
+    --color-primary-500: 255 132 132;
+    --color-primary-600: 255 132 132;
+    --color-primary-700: 255 132 132;
+    --color-primary-800: 255 132 132;
+    --color-primary-900: 255 132 132;
+    --color-primary-950: 255 132 132;
+  }
+
+  .dark {
+    --background: 240 10% 3.9%;
+    --foreground: 0 0% 98%;
+
+    --muted: 240 3.7% 15.9%;
+    --muted-foreground: 240 5% 64.9%;
+
+    --popover: 240 10% 3.9%;
+    --popover-foreground: 0 0% 98%;
+
+    --card: 240 10% 3.9%;
+    --card-foreground: 0 0% 98%;
+
+    --border: 240 3.7% 15.9%;
+    --input: 240 3.7% 15.9%;
+
+    --primary: 0 0% 98%;
+    --primary-foreground: 240 5.9% 10%;
+
+    --secondary: 240 3.7% 15.9%;
+    --secondary-foreground: 0 0% 98%;
+
+    --accent: 240 3.7% 15.9%;
+    --accent-foreground: 0 0% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+
+    --ring: 240 4.9% 83.9%;
+  }
 }
 
 @layer base {
-    * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-    }
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
 
-    body {
-        font-family: 'Lato', sans-serif;
-        color: var(--color)
-    }
+  body {
+    font-family: "Lato", sans-serif;
+    color: var(--color);
+  }
 }

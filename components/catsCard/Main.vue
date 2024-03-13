@@ -25,9 +25,9 @@
       </span>
     </UiCardContent>
 
-    <UlCardFooter class="px-4 py-4">
+    <UiCardFooter class="px-4 py-4">
       <UiButton class="w-full text-white">Добавить в корзину</UiButton>
-    </UlCardFooter>
+    </UiCardFooter>
 
     <UiButton
       size="icon"

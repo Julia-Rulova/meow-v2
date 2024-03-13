@@ -30,6 +30,9 @@
 <script setup lang="ts">
 import { z } from "zod";
 import type { FormSubmitEvent } from "#ui/types";
+import { useCatsStore } from "~/store/cats.store";
+
+const catStore = useCatsStore();
 
 const schema = z.object({
   name: z.string().min(1, "Введите имя котика"),
@@ -48,6 +51,7 @@ const state = reactive({
 });
 
 async function onSubmit(event: FormSubmitEvent<Schema>) {
+  catStore.createNewCat();
   // Do something with data
   console.log(event.data);
 }

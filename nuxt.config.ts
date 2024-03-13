@@ -6,7 +6,7 @@ export default defineNuxtConfig({
     "@nuxt/image",
     "@nuxtjs/tailwindcss",
     "shadcn-nuxt",
-    "nuxt-icons",
+    "nuxt-icon",
     "@pinia/nuxt",
     "radix-vue/nuxt",
     [

@@ -1,5 +1,5 @@
 <template>
-  <UiCard class="flex-1 flex flex-col">
+  <UiCard class="flex-1 flex flex-col relative group">
     <img
       :src="props.cat.img"
       :alt="props.cat.name"
@@ -28,6 +28,13 @@
     <UlCardFooter class="px-4 py-4">
       <UiButton class="w-full text-white">Добавить в корзину</UiButton>
     </UlCardFooter>
+
+    <UiButton
+      size="icon"
+      class="hidden group-hover:block absolute -top-4 -right-4 z-10"
+    >
+      <Icon name="mi:delete" width="20" height="20" style="color: white"></Icon>
+    </UiButton>
   </UiCard>
 </template>
 

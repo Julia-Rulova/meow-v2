@@ -1,5 +1,7 @@
 <template>
-  <section class="flex flex-col gap-6">
+  <section
+    class="flex flex-col gap-6 justify-between w-full flex-1 min-h-screen"
+  >
     <LayoutHeader></LayoutHeader>
 
     <div class="wrapper">

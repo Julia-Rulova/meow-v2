@@ -1,5 +1,5 @@
 <template>
-  <section class="page">
+  <section class="page flex">
     <slot />
   </section>
 </template>

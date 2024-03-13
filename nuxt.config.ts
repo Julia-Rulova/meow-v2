@@ -13,7 +13,7 @@ export default defineNuxtConfig({
       "@nuxtjs/google-fonts",
       {
         families: {
-          Lato: {
+          Nunito: {
             wght: [300, 500, 700],
             ital: [300],
           },

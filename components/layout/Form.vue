@@ -2,7 +2,7 @@
   <UForm
     :schema="schema"
     :state="state"
-    class="space-y-4 bg-white px-4 py-5 rounded-xl shadow-xl"
+    class="space-y-4 bg-white px-4 py-5 rounded-xl shadow-xl h-fit"
     @submit="onSubmit"
   >
     <span class="text-lg mb-2.5">Добавить котика</span>

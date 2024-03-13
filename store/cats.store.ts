@@ -1,11 +1,13 @@
 import { DB_ID, COLLECTION_CATS } from "~/app.constants";
 
 export interface ICat {
+  id: string;
   name: string;
   descr: string;
   price: number;
   img: string;
   owner_id: string;
+  age: string;
 }
 
 export const useCatsStore = defineStore("cats", {

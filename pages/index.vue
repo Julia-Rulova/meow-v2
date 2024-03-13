@@ -30,6 +30,8 @@
         </ul>
       </div>
     </div>
+
+    <LayoutFooter></LayoutFooter>
   </section>
 </template>
 

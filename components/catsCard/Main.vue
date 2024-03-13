@@ -8,13 +8,20 @@
 
     <UiCardContent class="flex flex-col py-3 px-4 justify-between flex-1 gap-3">
       <div>
-        <h3 class="text-xl mb-2 font-semibold">{{ props.cat.name }}</h3>
+        <h3 class="text-xl mb-2 font-semibold">
+          {{ props.cat.name }},
+          <span class="text-lg font-light">
+            {{
+              props.cat.age + " " + getNoun(props.cat.age, "год", "года", "лет")
+            }}
+          </span>
+        </h3>
 
         <p class="text-s">{{ props.cat.descr }}</p>
       </div>
 
       <span class="text-2xl underline decoration-primary">
-        {{ cat.price.toLocaleString() }} p.
+        {{ cat.price.toLocaleString() }} ₽
       </span>
     </UiCardContent>
 
@@ -25,6 +32,8 @@
 </template>
 
 <script setup lang="ts">
+import { getNoun } from "@/utils/getNoun";
+
 const props = defineProps(["cat"]);
 </script>
 

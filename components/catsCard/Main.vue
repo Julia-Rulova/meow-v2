@@ -17,12 +17,68 @@
           </span>
         </h3>
 
-        <p class="text-s">{{ props.cat.descr }}</p>
-      </div>
+        <ul class="flex flex-col gap-1">
+          <li>
+            <p class="text-sm">
+              <Icon
+                name="material-symbols-light:syringe-outline"
+                width="20"
+                height="20"
+              ></Icon>
+              <span
+                class="underline mr-2 max-w-36 font-semibold decoration-primary"
+              >
+                Вакцинация:
+              </span>
 
-      <span class="text-2xl underline decoration-primary">
-        {{ cat.price.toLocaleString() }} ₽
-      </span>
+              <Icon
+                v-if="props.cat.vaccine"
+                name="lets-icons:check-round-fill"
+                width="21"
+                height="21"
+                style="color: green"
+              ></Icon>
+              <Icon
+                v-else
+                name="ion:close-circle"
+                width="20"
+                height="20"
+                style="color: red"
+              ></Icon>
+            </p>
+          </li>
+          <li>
+            <p class="text-sm">
+              <Icon
+                name="solar:people-nearby-outline"
+                width="18"
+                height="18"
+              ></Icon>
+              <span
+                class="underline mr-2 max-w-36 font-semibold decoration-primary"
+              >
+                Отношение к людям:
+              </span>
+              {{ props.cat.relation_people }}
+            </p>
+          </li>
+          <li>
+            <p class="text-sm">
+              <Icon
+                name="fluent:animal-dog-16-regular"
+                width="18"
+                height="18"
+              ></Icon>
+              <span
+                class="underline mr-2 whitespace-nowrap font-semibold decoration-primary"
+              >
+                Отношение к другим животным:
+              </span>
+              {{ props.cat.relation_animals }}
+            </p>
+          </li>
+        </ul>
+      </div>
     </UiCardContent>
 
     <UiCardFooter class="px-4 py-4">

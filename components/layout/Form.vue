@@ -15,12 +15,39 @@
       <UTextarea v-model="state.descr" />
     </UFormGroup>
 
-    <UFormGroup label="Цена" name="price">
-      <UInput v-model="state.price" type="number" />
+    <UFormGroup label="Возраст" name="age">
+      <UInput v-model="state.age" />
     </UFormGroup>
 
     <UFormGroup label="Ссылка на изображение" name="img">
       <UInput v-model="state.img" />
+    </UFormGroup>
+
+    <UFormGroup label="Вакцинация" name="vaccine">
+      <UCheckbox name="vaccine" />
+    </UFormGroup>
+
+    <UFormGroup label="Отношение к людям" name="relation_people">
+      <UInput v-model="state.relation_people" />
+    </UFormGroup>
+
+    <UFormGroup label="Отношение к другим животным" name="relation_animals">
+      <UInput v-model="state.relation_animals" />
+    </UFormGroup>
+
+    <UFormGroup label="Контакты" name="contacts">
+      <UiTagsInput v-model="state.contacts">
+        <UiTagsInputItem
+          v-for="item in state.contacts"
+          :key="item"
+          :value="item"
+        >
+          <UiTagsInputItemText />
+          <UiTagsInputItemDelete />
+        </UiTagsInputItem>
+
+        <UiTagsInputInput placeholder="Контакты..." />
+      </UiTagsInput>
     </UFormGroup>
 
     <UButton type="submit" block size="md">Добавить котика</UButton>
@@ -37,7 +64,6 @@ const catStore = useCatsStore();
 const schema = z.object({
   name: z.string().min(1, "Введите имя котика"),
   descr: z.string().min(10, "Введите описание котика"),
-  price: z.number().min(0, "Заполните это поле"),
   img: z.string().url("Вы ввели некорректную ссылку"),
 });
 
@@ -46,8 +72,12 @@ type Schema = z.output<typeof schema>;
 const state = reactive({
   name: "",
   descr: "",
-  price: 0,
   img: "",
+  age: 0,
+  vaccine: false,
+  relation_people: "",
+  relation_animals: "",
+  contacts: [],
 });
 
 async function onSubmit(event: FormSubmitEvent<Schema>) {

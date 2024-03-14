@@ -4,10 +4,12 @@ export interface ICat {
   id: string;
   name: string;
   descr: string;
-  price: number;
   img: string;
   owner_id: string;
   age: string;
+  vaccine: boolean;
+  relation_people: string;
+  relation_animals: string;
 }
 
 export const useCatsStore = defineStore("cats", {

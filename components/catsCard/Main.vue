@@ -1,10 +1,12 @@
 <template>
   <UiCard class="flex-1 flex flex-col relative group">
-    <img
-      :src="props.cat.img"
-      :alt="props.cat.name"
-      class="rounded-t-xl object-cover h-60"
-    />
+    <NuxtLink :to="`/cats/${props.cat.$id}`" @click="handleCardClick">
+      <img
+        :src="props.cat.img"
+        :alt="props.cat.name"
+        class="rounded-t-xl object-cover h-60"
+      />
+    </NuxtLink>
 
     <UiCardContent class="flex flex-col py-3 px-4 justify-between flex-1 gap-3">
       <div>
@@ -108,8 +110,15 @@
 
 <script setup lang="ts">
 import { getNoun } from "@/utils/getNoun";
+import { useCatsStore } from "~/store/cats.store";
 
 const props = defineProps(["cat"]);
+
+const catsStore = useCatsStore();
+
+const handleCardClick = () => {
+  catsStore.setCurrentCat(props.cat);
+};
 </script>
 
 <style scoped></style>

@@ -1,7 +1,7 @@
 import { DB_ID, COLLECTION_CATS } from "~/app.constants";
 
 export interface ICat {
-  id: string;
+  $id: string;
   name: string;
   descr: string;
   img: string;
@@ -17,6 +17,7 @@ export const useCatsStore = defineStore("cats", {
     return {
       cats: [] as ICat[],
       loading: false,
+      currentCat: null as ICat,
     };
   },
 
@@ -58,6 +59,10 @@ export const useCatsStore = defineStore("cats", {
 
     setLoading(val: boolean) {
       this.loading = val;
+    },
+
+    setCurrentCat(cat: ICat) {
+      this.currentCat = cat;
     },
   },
 });

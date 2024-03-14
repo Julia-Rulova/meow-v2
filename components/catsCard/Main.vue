@@ -26,15 +26,27 @@
     </UiCardContent>
 
     <UiCardFooter class="px-4 py-4">
-      <UiButton class="w-full text-white">Добавить в корзину</UiButton>
+      <UiButton class="w-full text-white">Добавить в избранное</UiButton>
     </UiCardFooter>
 
-    <UiButton
-      size="icon"
-      class="hidden group-hover:block absolute -top-4 -right-4 z-10"
+    <ModalDefault
+      :title="'Удалить котика'"
+      :descr="'Вы действительно хотите удалить котика? Это действие нельзя будет отменить.'"
+      :cancel="'Отменить'"
+      :action="'Подтвердить'"
     >
-      <Icon name="mi:delete" width="20" height="20" style="color: white"></Icon>
-    </UiButton>
+      <UiButton
+        size="icon"
+        class="hidden group-hover:block absolute -top-4 -right-4 z-10"
+      >
+        <Icon
+          name="mi:delete"
+          width="20"
+          height="20"
+          style="color: white"
+        ></Icon>
+      </UiButton>
+    </ModalDefault>
   </UiCard>
 </template>
 

@@ -14,6 +14,7 @@ export const useCatsStore = defineStore("cats", {
   state: () => {
     return {
       cats: [] as ICat[],
+      loading: false,
     };
   },
 
@@ -22,6 +23,7 @@ export const useCatsStore = defineStore("cats", {
       const promise = DB.listDocuments(DB_ID, COLLECTION_CATS);
       const toast = useToast();
 
+      this.setLoading(true);
       promise
         .then((res) => {
           this.cats = res.documents as unknown as ICat[];
@@ -35,6 +37,9 @@ export const useCatsStore = defineStore("cats", {
             color: "red",
             description: err,
           });
+        })
+        .finally(() => {
+          this.setLoading(false);
         });
     },
 
@@ -47,6 +52,10 @@ export const useCatsStore = defineStore("cats", {
         color: "red",
         description: "Чтобы добавить котика, нужно войти",
       });
+    },
+
+    setLoading(val: boolean) {
+      this.loading = val;
     },
   },
 });

@@ -16,7 +16,7 @@
     </UFormGroup>
 
     <UFormGroup label="Возраст" name="age">
-      <UInput v-model="state.age" />
+      <UInput v-model="state.age" type="number" />
     </UFormGroup>
 
     <UFormGroup label="Ссылка на изображение" name="img">

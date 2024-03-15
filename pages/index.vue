@@ -32,7 +32,7 @@
             v-else
             class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-2.5"
           >
-            <li v-for="cat in cats" :key="cat.id" class="flex">
+            <li v-for="cat in cats" :key="cat.$id" class="flex">
               <CatsCardMain :cat="cat"></CatsCardMain>
             </li>
           </ul>

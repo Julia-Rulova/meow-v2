@@ -17,7 +17,7 @@ export const useCatsStore = defineStore("cats", {
     return {
       cats: [] as ICat[],
       loading: false,
-      currentCat: null as ICat,
+      currentCat: null as ICat | null,
     };
   },
 

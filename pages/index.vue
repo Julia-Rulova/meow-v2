@@ -2,8 +2,6 @@
   <section
     class="flex flex-col gap-6 justify-between w-full flex-1 min-h-screen"
   >
-    <span class="i-heroicons-check-circle hidden"></span>
-
     <div class="flex flex-col gap-6">
       <LayoutHeader></LayoutHeader>
 

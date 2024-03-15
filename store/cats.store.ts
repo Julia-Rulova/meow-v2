@@ -35,7 +35,6 @@ export const useCatsStore = defineStore("cats", {
           console.log(err);
 
           toast.add({
-            icon: "i-material-symbols-error",
             title: "Не удалось получить данные",
             color: "red",
             description: err,
@@ -50,7 +49,6 @@ export const useCatsStore = defineStore("cats", {
       const toast = useToast();
 
       toast.add({
-        icon: "i-heroicons-exclamation-circle-16-solid",
         title: "Ошибка",
         color: "red",
         description: "Чтобы добавить котика, нужно войти",

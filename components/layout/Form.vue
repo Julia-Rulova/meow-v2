@@ -35,19 +35,8 @@
       <UInput v-model="state.relation_animals" />
     </UFormGroup>
 
-    <UFormGroup label="Контакты" name="contacts">
-      <UiTagsInput v-model="state.contacts">
-        <UiTagsInputItem
-          v-for="item in state.contacts"
-          :key="item"
-          :value="item"
-        >
-          <UiTagsInputItemText />
-          <UiTagsInputItemDelete />
-        </UiTagsInputItem>
-
-        <UiTagsInputInput placeholder="Контакты..." />
-      </UiTagsInput>
+    <UFormGroup label="Телефон для связи" name="phone">
+      <UInput v-model="state.phone" />
     </UFormGroup>
 
     <UButton type="submit" block size="md">Добавить котика</UButton>
@@ -65,6 +54,7 @@ const schema = z.object({
   name: z.string().min(1, "Введите имя котика"),
   descr: z.string().min(10, "Введите описание котика"),
   img: z.string().url("Вы ввели некорректную ссылку"),
+  phone: z.string().min(11, "Введите номер телефона"),
 });
 
 type Schema = z.output<typeof schema>;
@@ -77,7 +67,7 @@ const state = reactive({
   vaccine: false,
   relation_people: "",
   relation_animals: "",
-  contacts: [],
+  phone: "",
 });
 
 async function onSubmit(event: FormSubmitEvent<Schema>) {

@@ -5,7 +5,8 @@
     <div class="flex flex-col gap-6">
       <LayoutHeader></LayoutHeader>
 
-      <div class="wrapper">
+      <div class="flex flex-col justify-center items-center">
+        <CustomCarousel :imgs="catImgs"></CustomCarousel>
         <span>{{ currentCat }}</span>
       </div>
     </div>
@@ -19,20 +20,40 @@ import { useCatsStore } from "~/store/cats.store";
 
 const catsStore = useCatsStore();
 
+let catImgs = [
+  {
+    url: "https://i.pinimg.com/736x/27/c4/c7/27c4c7f5d6f13bc47fae33c83ef794c7--autumn-animals-cat-wallpaper.jpg",
+  },
+  {
+    url: "https://i.pinimg.com/736x/27/c4/c7/27c4c7f5d6f13bc47fae33c83ef794c7--autumn-animals-cat-wallpaper.jpg",
+  },
+  {
+    url: "https://i.pinimg.com/736x/27/c4/c7/27c4c7f5d6f13bc47fae33c83ef794c7--autumn-animals-cat-wallpaper.jpg",
+  },
+  {
+    url: "https://i.pinimg.com/736x/27/c4/c7/27c4c7f5d6f13bc47fae33c83ef794c7--autumn-animals-cat-wallpaper.jpg",
+  },
+  {
+    url: "https://i.pinimg.com/736x/27/c4/c7/27c4c7f5d6f13bc47fae33c83ef794c7--autumn-animals-cat-wallpaper.jpg",
+  },
+  {
+    url: "https://i.pinimg.com/736x/27/c4/c7/27c4c7f5d6f13bc47fae33c83ef794c7--autumn-animals-cat-wallpaper.jpg",
+  },
+  {
+    url: "https://i.pinimg.com/736x/27/c4/c7/27c4c7f5d6f13bc47fae33c83ef794c7--autumn-animals-cat-wallpaper.jpg",
+  },
+  {
+    url: "https://i.pinimg.com/736x/27/c4/c7/27c4c7f5d6f13bc47fae33c83ef794c7--autumn-animals-cat-wallpaper.jpg",
+  },
+  {
+    url: "https://i.pinimg.com/736x/27/c4/c7/27c4c7f5d6f13bc47fae33c83ef794c7--autumn-animals-cat-wallpaper.jpg",
+  },
+  {
+    url: "https://i.pinimg.com/736x/27/c4/c7/27c4c7f5d6f13bc47fae33c83ef794c7--autumn-animals-cat-wallpaper.jpg",
+  },
+];
+
 const currentCat = computed(() => catsStore.currentCat);
 </script>
 
-<style scoped>
-.wrapper {
-  display: grid;
-  grid-template-columns: 1fr 3fr;
-  gap: 25px;
-  padding: 0 35px 35px;
-}
-
-@media screen and (max-width: 1240px) {
-  .wrapper {
-    grid-template-columns: 1fr 2fr;
-  }
-}
-</style>
+<style scoped></style>

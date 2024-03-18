@@ -10,6 +10,8 @@ export interface ICat {
   vaccine: boolean;
   relation_people: string;
   relation_animals: string;
+  tags: string;
+  phone: string;
 }
 
 export const useCatsStore = defineStore("cats", {
@@ -17,7 +19,6 @@ export const useCatsStore = defineStore("cats", {
     return {
       cats: [] as ICat[],
       loading: false,
-      currentCat: null as ICat | null,
     };
   },
 
@@ -57,10 +58,6 @@ export const useCatsStore = defineStore("cats", {
 
     setLoading(val: boolean) {
       this.loading = val;
-    },
-
-    setCurrentCat(cat: ICat) {
-      this.currentCat = cat;
     },
   },
 });

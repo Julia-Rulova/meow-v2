@@ -12,8 +12,8 @@
       class="gap-3 flex flex-col bg-white px-4 py-5 rounded-xl shadow-xl h-fit min-w-80"
       @submit="onSubmit"
     >
-      <UFormGroup label="Email" name="email" class="w-full">
-        <UInput v-model="state.email" />
+      <UFormGroup label="Логин" name="login" class="w-full">
+        <UInput v-model="state.login" />
       </UFormGroup>
 
       <UFormGroup label="Пароль" name="pass" class="w-full">
@@ -21,13 +21,6 @@
       </UFormGroup>
 
       <UButton type="submit" block size="md">Войти</UButton>
-
-      <div class="flex flex-col items-center">
-        <span class="text-sm">Еще не зарегистрированы?</span>
-        <NuxtLink to="/sign-up">
-          <span class="text-sm underline">Зарегистрироватся</span>
-        </NuxtLink>
-      </div>
     </UForm>
   </section>
 </template>
@@ -40,14 +33,14 @@ import { useCatsStore } from "~/store/cats.store";
 const catStore = useCatsStore();
 
 const schema = z.object({
-  email: z.string().email("Введите корректный email"),
+  login: z.string().min(1, "Введите корректный login"),
   pass: z.string().min(4, "Введите пароль"),
 });
 
 type Schema = z.output<typeof schema>;
 
 const state = reactive({
-  email: "",
+  login: "",
   pass: "",
 });
 

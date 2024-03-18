@@ -32,20 +32,20 @@ watchOnce(emblaMainApi, (emblaMainApi) => {
 <template>
   <div class="sm:w-auto">
     <UiCarousel
-      class="relative w-full max-w-lg"
+      class="relative w-full"
       @init-api="(val: CarouselApi) => (emblaMainApi = val)"
     >
       <UiCarouselContent>
         <UiCarouselItem v-for="(img, index) in props.imgs" :key="index">
           <div class="p-1">
-            <img :src="img.url" />
+            <img :src="img" />
           </div>
         </UiCarouselItem>
       </UiCarouselContent>
     </UiCarousel>
 
     <UiCarousel
-      class="relative w-full max-w-lg"
+      class="relative w-full"
       @init-api="(val: CarouselApi) => (emblaThumbnailApi = val)"
     >
       <UiCarouselContent class="flex gap-1 ml-0">
@@ -56,7 +56,7 @@ watchOnce(emblaMainApi, (emblaMainApi) => {
           @click="onThumbClick(index)"
         >
           <div class="p-1" :class="index === selectedIndex ? '' : 'opacity-50'">
-            <img :src="img.url" />
+            <img :src="img" />
           </div>
         </UiCarouselItem>
       </UiCarouselContent>

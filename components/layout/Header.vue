@@ -18,7 +18,7 @@
         ></Icon>
       </NuxtLink>
 
-      <NuxtLink to="/sign-in">
+      <NuxtLink to="/profile">
         <Icon
           name="ph:user-bold"
           style="color: white"

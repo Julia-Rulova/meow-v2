@@ -1,10 +1,10 @@
 <template>
   <UiCard class="flex-1 flex flex-col relative group">
-    <NuxtLink :to="`/cats/${props.cat.$id}`" @click="handleCardClick">
+    <NuxtLink :to="`/cats/${props.cat.$id}`">
       <img
         :src="props.cat.img"
         :alt="props.cat.name"
-        class="rounded-t-xl object-cover h-60"
+        class="rounded-t-xl object-cover h-60 w-full"
       />
     </NuxtLink>
 
@@ -80,6 +80,12 @@
             </p>
           </li>
         </ul>
+
+        <ul class="flex flex-row gap-x-1 flex-wrap mt-4">
+          <li v-for="(item, index) in catTags" :key="index" class="text-sm">
+            #{{ item }}
+          </li>
+        </ul>
       </div>
     </UiCardContent>
 
@@ -92,6 +98,7 @@
       :descr="'Вы действительно хотите удалить котика? Это действие нельзя будет отменить.'"
       :cancel="'Отменить'"
       :action="'Подтвердить'"
+      v-if="props.cat.owner_id === user.id"
     >
       <UiButton
         size="icon"
@@ -110,15 +117,15 @@
 
 <script setup lang="ts">
 import { getNoun } from "@/utils/getNoun";
-import { useCatsStore } from "~/store/cats.store";
+import { useAuthStore } from "~/store/auth.store";
 
 const props = defineProps(["cat"]);
 
-const catsStore = useCatsStore();
+const authStore = useAuthStore();
 
-const handleCardClick = () => {
-  catsStore.setCurrentCat(props.cat);
-};
+const user = computed(() => authStore.user);
+
+const catTags = computed(() => props.cat.tags.split(" "));
 </script>
 
 <style scoped></style>

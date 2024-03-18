@@ -6,24 +6,9 @@
       <LayoutHeader></LayoutHeader>
 
       <div class="wrapper">
-        <LayoutForm></LayoutForm>
+        <LayoutSort></LayoutSort>
 
-        <div class="flex flex-col align-end gap-3">
-          <UiSelect>
-            <UiSelectTrigger class="w-[280px] bg-white">
-              <UiSelectValue placeholder="Сортировать" />
-            </UiSelectTrigger>
-            <UiSelectContent>
-              <UiSelectGroup>
-                <UiSelectItem value="default">По умолчанию</UiSelectItem>
-                <UiSelectItem value="cheaper">Сначала дешевле</UiSelectItem>
-                <UiSelectItem value="expensive">Сначала дороже</UiSelectItem>
-                <UiSelectItem value="atoz">По алфавиту (А 🠖 Я)</UiSelectItem>
-                <UiSelectItem value="ztoa">По алфавиту (Я 🠖 А)</UiSelectItem>
-              </UiSelectGroup>
-            </UiSelectContent>
-          </UiSelect>
-
+        <div class="flex align-center justify-center gap-3 w-full">
           <CustomPreloader v-if="catsStore.loading"></CustomPreloader>
 
           <ul
@@ -48,8 +33,6 @@ import { useCatsStore } from "~/store/cats.store";
 const catsStore = useCatsStore();
 
 const cats = computed(() => catsStore.cats);
-
-catsStore.getCats();
 </script>
 
 <style scoped>

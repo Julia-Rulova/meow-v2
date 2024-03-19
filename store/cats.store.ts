@@ -19,6 +19,17 @@ export const useCatsStore = defineStore("cats", {
     return {
       cats: [] as ICat[],
       loading: false,
+      newCat: {
+        name: "",
+        descr: "",
+        img: "",
+        age: "",
+        vaccine: false,
+        relation_people: "",
+        relation_animals: "",
+        tags: "",
+        phone: "",
+      },
     };
   },
 

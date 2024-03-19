@@ -7,7 +7,7 @@ export default defineNuxtRouteMiddleware((to, from) => {
 
   if (!isAuth && to.path !== "/sign-in") {
     return navigateTo("/sign-in");
-  } else if (to.path !== "/profile") {
-    return navigateTo("/profile");
+  } else if (to.path !== "/my-cats") {
+    return navigateTo("/my-cats");
   }
 });

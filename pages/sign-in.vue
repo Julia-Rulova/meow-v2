@@ -30,6 +30,10 @@ import { z } from "zod";
 import type { FormSubmitEvent } from "#ui/types";
 import { useCatsStore } from "~/store/cats.store";
 
+definePageMeta({
+  middleware: "auth",
+});
+
 const catStore = useCatsStore();
 
 const schema = z.object({

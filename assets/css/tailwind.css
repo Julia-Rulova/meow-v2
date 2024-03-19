@@ -93,4 +93,14 @@
     font-family: "Nunito", sans-serif;
     color: var(--color);
   }
+
+  body::-webkit-scrollbar {
+    background-color: #fafafa;
+    width: 7px;
+  }
+
+  body::-webkit-scrollbar-thumb {
+    background-color: var(--primary);
+    border-radius: 40px;
+  }
 }

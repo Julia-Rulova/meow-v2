@@ -11,16 +11,28 @@
         <CustomPreloader v-if="catsStore.loading"></CustomPreloader>
 
         <div
+          v-else-if="favoriteCats.length === 0"
+          class="w-full flex flex-col align-center justify-center"
+        >
+          <span class="text-center text-xl">В избранном пусто</span>
+          <span class="text-center">
+            Добавляйте котиков в избранное с помощью ⭐️
+          </span>
+        </div>
+
+        <div
           v-else
           class="flex flex-col align-center justify-center gap-8 sm:gap-16 w-full"
         >
-          <ul
+          <TransitionGroup
+            name="list"
+            tag="ul"
             class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-2.5"
           >
             <li v-for="cat in favoriteCatsSlice" :key="cat.$id" class="flex">
               <CatsCardMain :cat="cat"></CatsCardMain>
             </li>
-          </ul>
+          </TransitionGroup>
 
           <CustomPagination
             :total="favoriteCats.length"
@@ -51,3 +63,15 @@ onMounted(() => {
   catsStore.getFavoriteCats();
 });
 </script>
+
+<style scoped>
+.list-enter-active,
+.list-leave-active {
+  transition: all 0.5s ease;
+}
+.list-enter-from,
+.list-leave-to {
+  opacity: 0;
+  transform: translateX(30px);
+}
+</style>

@@ -103,6 +103,8 @@ export const useCatsStore = defineStore("cats", {
 
         localStorage.setItem("favoriteCats", JSON.stringify(this.favoriteCats));
       }
+
+      this.getFavoriteCats();
     },
 
     showFavoriteCatsPage(page: number) {

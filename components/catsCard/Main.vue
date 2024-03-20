@@ -1,12 +1,10 @@
 <template>
   <UiCard class="flex-1 flex flex-col relative group">
-    <NuxtLink :to="`/cats/${props.cat.$id}`">
-      <img
-        :src="props.cat.img"
-        :alt="props.cat.name"
-        class="rounded-t-xl object-cover h-60 w-full"
-      />
-    </NuxtLink>
+    <img
+      :src="props.cat.img"
+      :alt="props.cat.name"
+      class="rounded-t-xl object-cover h-60 w-full"
+    />
 
     <UiCardContent class="flex flex-col py-3 px-4 justify-between flex-1 gap-3">
       <div>
@@ -89,8 +87,27 @@
       </div>
     </UiCardContent>
 
-    <UiCardFooter class="px-4 py-4">
-      <UiButton class="w-full text-white">Добавить в избранное</UiButton>
+    <UiCardFooter class="px-4 py-4 flex flex-row gap-2">
+      <NuxtLink :to="`/cats/${props.cat.$id}`" class="w-11/12">
+        <UiButton class="w-full text-white"> Подробнее </UiButton>
+      </NuxtLink>
+
+      <UiButton size="icon" @click="setFavorite">
+        <Icon
+          v-if="favoriteActive"
+          name="clarity:star-solid"
+          style="color: white"
+          width="20"
+          height="20"
+        ></Icon>
+        <Icon
+          v-else
+          name="clarity:star-line"
+          style="color: white"
+          width="20"
+          height="20"
+        ></Icon>
+      </UiButton>
     </UiCardFooter>
 
     <ModalDefault
@@ -118,14 +135,26 @@
 <script setup lang="ts">
 import { getNoun } from "@/utils/getNoun";
 import { useAuthStore } from "~/store/auth.store";
+import { useCatsStore } from "~/store/cats.store";
 
 const props = defineProps(["cat"]);
 
 const authStore = useAuthStore();
+const catsStore = useCatsStore();
 
 const user = computed(() => authStore.user);
 
+const favoriteCats = computed(() => catsStore.favoriteCats);
+
 const catTags = computed(() => props.cat.tags.split(" "));
+
+const favoriteActive = computed(() =>
+  favoriteCats.value.find((f) => f.$id === props.cat.$id)
+);
+
+const setFavorite = () => {
+  catsStore.setFavoriteCat(props.cat);
+};
 </script>
 
 <style scoped></style>

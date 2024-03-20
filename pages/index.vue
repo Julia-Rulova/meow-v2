@@ -8,17 +8,23 @@
       <div class="wrapper">
         <LayoutSort></LayoutSort>
 
-        <div class="flex align-center justify-center gap-3 w-full">
+        <div class="flex flex-col align-center justify-center w-full">
           <CustomPreloader v-if="catsStore.loading"></CustomPreloader>
 
-          <ul
+          <div
             v-else
-            class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-2.5"
+            class="flex flex-col align-center justify-center gap-16 w-full"
           >
-            <li v-for="cat in cats" :key="cat.$id" class="flex">
-              <CatsCardMain :cat="cat"></CatsCardMain>
-            </li>
-          </ul>
+            <ul
+              class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-2.5"
+            >
+              <li v-for="cat in cats" :key="cat.$id" class="flex">
+                <CatsCardMain :cat="cat"></CatsCardMain>
+              </li>
+            </ul>
+
+            <CustomPagination :total="cats.length"></CustomPagination>
+          </div>
         </div>
       </div>
     </div>

@@ -30,6 +30,8 @@ export const useCatsStore = defineStore("cats", {
         tags: "",
         phone: "",
       },
+      favoriteCats: [] as ICat[],
+      favoriteCatsSlice: [] as ICat[],
     };
   },
 
@@ -42,6 +44,8 @@ export const useCatsStore = defineStore("cats", {
       promise
         .then((res) => {
           this.cats = res.documents as unknown as ICat[];
+
+          this.getFavoriteCats();
         })
         .catch((err) => {
           console.log(err);
@@ -69,6 +73,45 @@ export const useCatsStore = defineStore("cats", {
 
     setLoading(val: boolean) {
       this.loading = val;
+    },
+
+    getFavoriteCats() {
+      const cats = localStorage.getItem("favoriteCats");
+
+      if (cats) {
+        this.favoriteCats = this.cats.filter((f) =>
+          JSON.parse(cats).find((c: ICat) => c.$id === f.$id)
+        );
+      } else {
+        this.favoriteCats = [];
+      }
+
+      this.showFavoriteCatsPage(1);
+    },
+
+    setFavoriteCat(cat: ICat) {
+      let curCat = this.favoriteCats.find((f: ICat) => f.$id === cat.$id);
+
+      if (curCat) {
+        this.favoriteCats = this.favoriteCats.filter(
+          (f: ICat) => f.$id !== cat.$id
+        );
+
+        localStorage.setItem("favoriteCats", JSON.stringify(this.favoriteCats));
+      } else {
+        this.favoriteCats.push(cat);
+
+        localStorage.setItem("favoriteCats", JSON.stringify(this.favoriteCats));
+      }
+    },
+
+    showFavoriteCatsPage(page: number) {
+      const page_size = 10;
+
+      this.favoriteCatsSlice = this.favoriteCats.slice(
+        (page - 1) * page_size,
+        page * page_size
+      );
     },
   },
 });

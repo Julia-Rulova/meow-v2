@@ -1,20 +1,23 @@
 <template>
   <header
-    class="bg-red-400 px-2.5 py-4 flex items-center justify-between shadow-xl"
+    class="bg-red-400 px-1.5 py-2 sm:px-2.5 sm:py-4 flex items-center justify-between shadow-xl"
   >
     <NuxtLink to="/">
-      <Icon name="mdi:cat" style="color: white" width="48" height="48"></Icon>
+      <Icon
+        name="mdi:cat"
+        style="color: white"
+        class="w-9 h-9 sm:w-12 sm:h-12"
+      ></Icon>
     </NuxtLink>
 
-    <span class="text-2xl text-slate-50">MEOW project</span>
+    <span class="text-xl sm:text-2xl text-slate-50">MEOW project</span>
 
     <div class="flex gap-3">
       <NuxtLink to="/favorites">
         <Icon
           name="akar-icons:star"
           style="color: white"
-          width="32"
-          height="32"
+          class="w-6 h-6 sm:w-8 sm:h-8"
         ></Icon>
       </NuxtLink>
 
@@ -22,9 +25,7 @@
         <Icon
           name="ph:user-bold"
           style="color: white"
-          width="32"
-          height="32"
-          class="cursor-pointer"
+          class="w-6 h-6 sm:w-8 sm:h-8"
         ></Icon>
       </NuxtLink>
     </div>

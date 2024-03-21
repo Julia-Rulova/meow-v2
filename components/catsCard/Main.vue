@@ -12,7 +12,13 @@
           {{ props.cat.name }},
           <span class="text-lg font-light">
             {{
-              props.cat.age + " " + getNoun(props.cat.age, "год", "года", "лет")
+              props.cat.years +
+              " " +
+              getNoun(props.cat.years, "год", "года", "лет") +
+              " " +
+              props.cat.months +
+              " " +
+              getNoun(props.cat.months, "месяц", "месяца", "месяцев")
             }}
           </span>
         </h3>

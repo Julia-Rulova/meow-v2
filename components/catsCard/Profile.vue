@@ -10,8 +10,22 @@
 
         <ul class="grid grid-cols-3 gap-y-3 gap-x-4">
           <li class="flex flex-col">
+            <span class="text-sm text-slate-500"> Имя:</span>
+            <span> {{ props.cat.name }}</span>
+          </li>
+          <li class="flex flex-col">
             <span class="text-xs text-slate-500"> Возраст:</span>
-            <span> {{ props.cat.age }}</span>
+            <span>
+              {{
+                props.cat.years +
+                " " +
+                getNoun(props.cat.years, "год", "года", "лет") +
+                " " +
+                props.cat.months +
+                " " +
+                getNoun(props.cat.months, "месяц", "месяца", "месяцев")
+              }}
+            </span>
           </li>
           <li class="flex flex-col">
             <span class="text-sm text-slate-500"> Вакцинация:</span>
@@ -30,12 +44,6 @@
           <li class="flex flex-col">
             <span class="text-sm text-slate-500"> Телефон для связи: </span>
             <span> {{ props.cat.phone }}</span>
-          </li>
-          <li class="flex flex-col">
-            <span class="text-sm text-slate-500"> Тэги: </span>
-            <ul class="flex flex-row gap-x-1 flex-wrap">
-              <li v-for="(item, index) in catTags" :key="index">#{{ item }}</li>
-            </ul>
           </li>
         </ul>
       </div>
@@ -59,6 +67,8 @@
 </template>
 
 <script setup lang="ts">
+import { getNoun } from "@/utils/getNoun";
+
 const props = defineProps(["cat"]);
 
 const catTags = computed(() => props.cat.tags.split(" "));

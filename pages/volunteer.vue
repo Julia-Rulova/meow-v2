@@ -13,15 +13,17 @@
         }"
       />
 
-      <div class="flex flex-row justify-center gap-6 px-12">
-        <div class="flex flex-col gap-6">
-          <img
-            :src="user.ava"
-            :alt="user.name"
-            class="object-cover rounded w-80 min-w-80"
-          />
+      <div class="flex flex-col items-center mx-36">
+        <img
+          :src="user.ava"
+          :alt="user.name"
+          class="object-cover rounded-full w-48 h-48 -mb-8 z-10"
+        />
 
-          <ul class="flex flex-col gap-1 pl-3 border-l-2 border-primary">
+        <div
+          class="bg-primary text-white px-7 py-9 flex flex-col gap-3 items-center rounded-xl"
+        >
+          <ul class="flex flex-row gap-3">
             <li>
               <a
                 :href="'tel:' + user.phone"
@@ -44,12 +46,18 @@
               </a>
             </li>
           </ul>
-        </div>
 
-        <div class="flex flex-col gap-3">
-          <h3 class="text-2xl">{{ user.name }}</h3>
+          <h3 class="text-3xl uppercase">{{ user.name }}</h3>
 
-          <p>{{ user.descr }}</p>
+          <div class="w-full flex flex-row items-end gap-6">
+            <p>{{ user.descr }}</p>
+
+            <img
+              src="../public/catVolunteer.svg"
+              alt="котик."
+              class="w-60 object-contain"
+            />
+          </div>
         </div>
       </div>
     </div>

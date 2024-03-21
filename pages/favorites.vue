@@ -12,7 +12,7 @@
 
         <div
           v-else-if="favoriteCats.length === 0"
-          class="w-full flex flex-col align-center justify-center"
+          class="w-full flex flex-col align-center justify-center mt-36"
         >
           <span class="text-center text-xl">В избранном пусто</span>
           <span class="text-center">

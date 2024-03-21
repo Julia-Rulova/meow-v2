@@ -48,6 +48,16 @@
 
           <CustomPreloader v-if="catsStore.loading"></CustomPreloader>
 
+          <div
+            v-else-if="cats.length === 0"
+            class="w-full flex flex-col align-center justify-center mt-36"
+          >
+            <span class="text-center text-xl">У Вас пока нет котиков</span>
+            <span class="text-center">
+              Добавляйте котиков в избранное с помощью кнопки в верху страницы
+            </span>
+          </div>
+
           <ul v-else class="flex flex-col gap-4 w-full">
             <li v-for="cat in cats" :key="cat.$id" class="flex">
               <CatsCardProfile :cat="cat"></CatsCardProfile>

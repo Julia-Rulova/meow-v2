@@ -8,7 +8,7 @@
       <UForm
         :schema="schema"
         :state="stateForm"
-        class="space-y-4 h-fit"
+        class="space-y-4 max-h-[80vh] overflow-y-auto px-6"
         @submit="onSubmit"
       >
         <UFormGroup label="Имя" name="name">
@@ -16,11 +16,15 @@
         </UFormGroup>
 
         <UFormGroup label="Описание" name="descr">
-          <UTextarea v-model="stateForm.descr" />
+          <UTextarea v-model="stateForm.descr" autoresize />
         </UFormGroup>
 
-        <UFormGroup label="Возраст" name="age">
-          <UInput v-model="stateForm.age" />
+        <UFormGroup label="Возраст: количество полных лет" name="years">
+          <UInput v-model="stateForm.years" />
+        </UFormGroup>
+
+        <UFormGroup label="Возраст: количество полных месяцев" name="months">
+          <UInput v-model="stateForm.months" />
         </UFormGroup>
 
         <UFormGroup label="Ссылка на изображение" name="img">
@@ -68,7 +72,12 @@ const props = defineProps(["cat", "title"]);
 
 const schema = z.object({
   name: z.string().min(1, "Введите имя"),
-  age: z.string().min(1, "Введите возраст"),
+  years: z.number({
+    required_error: "Введите количество лет",
+  }),
+  months: z.number({
+    required_error: "Введите количество месяцев",
+  }),
   descr: z.string().min(10, "Введите описание"),
 });
 

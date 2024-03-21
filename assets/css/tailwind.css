@@ -89,6 +89,16 @@
     box-sizing: border-box;
   }
 
+  *::-webkit-scrollbar {
+    width: 0.5rem;
+    height: 0.5rem;
+  }
+
+  *::-webkit-scrollbar-thumb {
+    border-radius: calc(var(--radius) - 4px);
+    background-color: hsl(var(--muted-foreground) / 0.3) !important;
+  }
+
   body {
     font-family: "Nunito", sans-serif;
     color: var(--color);

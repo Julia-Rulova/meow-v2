@@ -6,18 +6,18 @@
       <LayoutHeader></LayoutHeader>
 
       <div
-        class="flex flex-col align-center justify-center w-full px-4 sm:px-9"
+        class="flex flex-col items-center justify-center w-full px-4 sm:px-9"
       >
         <CustomPreloader v-if="catsStore.loading"></CustomPreloader>
 
         <div
           v-else-if="favoriteCats.length === 0"
-          class="w-full flex flex-col align-center justify-center mt-36"
+          class="w-full flex flex-col items-center justify-center mt-20"
         >
-          <span class="text-center text-xl">В избранном пусто</span>
-          <span class="text-center">
-            Добавляйте котиков в избранное с помощью ⭐️
-          </span>
+          <span class="text-xl">В избранном пусто</span>
+          <span> Добавляйте котиков в избранное с помощью ⭐️ </span>
+
+          <img src="../public/cat.svg" class="w-52 object-cover mt-8" />
         </div>
 
         <div

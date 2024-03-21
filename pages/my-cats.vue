@@ -50,12 +50,14 @@
 
           <div
             v-else-if="cats.length === 0"
-            class="w-full flex flex-col align-center justify-center mt-36"
+            class="w-full flex flex-col items-center justify-center mt-20"
           >
-            <span class="text-center text-xl">У Вас пока нет котиков</span>
-            <span class="text-center">
+            <span class="text-xl">У Вас пока нет котиков</span>
+            <span>
               Добавляйте котиков в избранное с помощью кнопки в верху страницы
             </span>
+
+            <img src="../public/cat.svg" class="w-48 object-cover mt-8" />
           </div>
 
           <ul v-else class="flex flex-col gap-4 w-full">
@@ -75,7 +77,7 @@
 import { useCatsStore } from "~/store/cats.store";
 
 definePageMeta({
-  middleware: "cats",
+  middleware: "auth",
 });
 
 const catsStore = useCatsStore();

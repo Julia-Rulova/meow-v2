@@ -52,7 +52,7 @@
           </UFormGroup>
 
           <UFormGroup label="Ссылка на аккаунт Instagram" name="insta">
-            <UInput v-model="stateForm.insta" />
+            <UInput v-model="stateForm.inst" />
           </UFormGroup>
 
           <UButton

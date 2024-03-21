@@ -5,6 +5,14 @@
     <div class="flex flex-col gap-6">
       <LayoutHeader></LayoutHeader>
 
+      <UHorizontalNavigation
+        :links="links"
+        class="border-b border-gray-200 dark:border-gray-800 px-8"
+        :ui="{
+          base: 'text-base',
+        }"
+      />
+
       <div class="wrapper">
         <LayoutSort></LayoutSort>
 
@@ -39,6 +47,19 @@ import { useCatsStore } from "~/store/cats.store";
 const catsStore = useCatsStore();
 
 const cats = computed(() => catsStore.cats);
+
+const links = [
+  {
+    label: "Главная",
+    icon: "i-heroicons-home",
+    to: "/",
+  },
+  {
+    label: "О волонтере",
+    icon: "i-heroicons-heart",
+    to: "/volunteer",
+  },
+];
 </script>
 
 <style scoped>

@@ -6,7 +6,7 @@ export interface IUser {
   phone: string;
   descr: string;
   telegram: string;
-  insta: string;
+  inst: string;
 }
 
 export const useAuthStore = defineStore("auth", {
@@ -27,8 +27,8 @@ export const useAuthStore = defineStore("auth", {
         phone: "+77777777777",
         descr:
           "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin aliquet nulla gravida magna congue pharetra. Donec at mi et nisi aliquet varius. Praesent fringilla lacus ut nisl efficitur, eget dapibus sapien imperdiet. Vestibulum gravida, orci rutrum lacinia finibus, libero diam euismod ligula, id pellentesque nunc nibh at dui. Nam laoreet congue pharetra. Donec sodales velit at egestas ullamcorper. In lobortis nec ex id imperdiet. Ut varius at libero a suscipit. Maecenas libero mi, tempus in maximus a, viverra ut lectus. Nullam a enim ut risus ultrices aliquet. Sed viverra eleifend fringilla. In semper nulla augue, sed faucibus dolor finibus at. Phasellus sem erat, feugiat non sagittis eget, pulvinar eu risus.",
-        telegram: "",
-        insta: "",
+        telegram: "@telegram",
+        inst: "inst.inst",
       };
 
       this.user = newUser;

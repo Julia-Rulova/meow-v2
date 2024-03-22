@@ -1,6 +1,25 @@
 <template>
   <section class="page flex">
     <slot />
+
+    <NuxtLink to="/donate" class="fixed bottom-10 right-5 rounded-full p-1.5 bg-primary/30">
+      <div class="border border-primary flex-1 absolute top-1.5 right-1.5 left-1.5 bottom-1.5 rounded-full animate-button-pulse"</div>
+      <UButton
+        size="sm"
+        color="primary"
+        variant="solid"
+        label="Button"
+        :trailing="false"
+        class="rounded-full px-3 py-2"
+      >
+        <Icon
+          name="bx:donate-heart"
+          width="28"
+          height="28"
+          style="color: white"
+        ></Icon>
+      </UButton>
+    </NuxtLink>
   </section>
 </template>
 

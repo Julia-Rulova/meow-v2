@@ -59,6 +59,11 @@ const links = [
     icon: "i-heroicons-heart",
     to: "/volunteer",
   },
+  {
+    label: "Помочь котикам",
+    icon: "i-bx-donate-heart",
+    to: "/donate",
+  },
 ];
 </script>
 

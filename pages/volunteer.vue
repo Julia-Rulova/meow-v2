@@ -13,17 +13,23 @@
         }"
       />
 
-      <div class="flex flex-col items-center mx-36">
-        <img
-          :src="user.ava"
-          :alt="user.name"
-          class="object-cover rounded-full w-48 h-48 -mb-8 z-10"
-        />
+      <div class="flex flex-row items-start mx-36 gap-16 mt-8">
+        <div class="flex flex-col h-full">
+          <div class="relative min-w-72 mb-12">
+            <div
+              class="border-4 border-primary w-72 h-72 absolute -bottom-8 -left-8 z-0 rounded-xl"
+            ></div>
 
-        <div
-          class="bg-primary text-white px-7 py-9 flex flex-col gap-3 items-center rounded-xl"
-        >
-          <ul class="flex flex-row gap-3">
+            <img
+              :src="user.ava"
+              :alt="user.name"
+              class="object-cover w-72 h-72 z-10 relative rounded-xl"
+            />
+          </div>
+
+          <ul
+            class="flex flex-col gap-3 -ml-8 border-l-2 pl-2 border-primary border-dashed"
+          >
             <li>
               <a
                 :href="'tel:' + user.phone"
@@ -46,18 +52,16 @@
               </a>
             </li>
           </ul>
+        </div>
 
-          <h3 class="text-3xl uppercase">{{ user.name }}</h3>
+        <div class="flex flex-col gap-7">
+          <h3
+            class="text-6xl uppercase [font-family:monospace] text text-primary font-semibold"
+          >
+            {{ user.name }}
+          </h3>
 
-          <div class="w-full flex flex-row items-end gap-6">
-            <p>{{ user.descr }}</p>
-
-            <img
-              src="../public/catVolunteer.svg"
-              alt="котик."
-              class="w-60 object-contain"
-            />
-          </div>
+          <p>{{ user.descr }}</p>
         </div>
       </div>
     </div>
@@ -91,3 +95,32 @@ const links = [
   },
 ];
 </script>
+
+<style scoped>
+.text {
+  animation: slideUp 1.5s forwards;
+  display: inline-block;
+  transform: translateY(150%);
+  opacity: 0;
+}
+
+@keyframes slideUp {
+  0% {
+    transform: translateX(150%);
+    opacity: 0;
+  }
+  25% {
+    opacity: 0.25;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  75% {
+    opacity: 0.75;
+  }
+  100% {
+    transform: translateX(0%);
+    opacity: 1;
+  }
+}
+</style>

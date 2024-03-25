@@ -1,6 +1,6 @@
 <template>
   <article
-    class="flex flex-col bg-white px-4 py-5 rounded-xl shadow-xl h-fit sticky top-7 left-9"
+    class="flex flex-col bg-white px-4 py-5 lg:rounded-xl lg:shadow-xl lg:sticky lg:h-fit lg:top-7 lg:left-9"
   >
     <h3 class="text-2xl mb-4">Поиск и сортировка</h3>
 
@@ -23,7 +23,7 @@
         <span class="text-sm text-slate-500">Пол</span>
 
         <UiSelect>
-          <UiSelectTrigger class="w-[280px] bg-white">
+          <UiSelectTrigger class="bg-white">
             <UiSelectValue placeholder="Пол" />
           </UiSelectTrigger>
           <UiSelectContent>
@@ -39,7 +39,7 @@
         <span class="text-sm text-slate-500">Окрас</span>
 
         <UiSelect>
-          <UiSelectTrigger class="w-[280px] bg-white">
+          <UiSelectTrigger class="bg-white">
             <UiSelectValue placeholder="Окрас" />
           </UiSelectTrigger>
           <UiSelectContent class="w-[300px]">
@@ -70,7 +70,7 @@
         <span class="text-sm text-slate-500">Место</span>
 
         <UiSelect>
-          <UiSelectTrigger class="w-[280px] bg-white">
+          <UiSelectTrigger class="bg-white">
             <UiSelectValue placeholder="Место" />
           </UiSelectTrigger>
           <UiSelectContent>
@@ -90,7 +90,7 @@
         <span class="text-sm text-slate-500">Здоровье</span>
 
         <UiSelect>
-          <UiSelectTrigger class="w-[280px] bg-white">
+          <UiSelectTrigger class="bg-white">
             <UiSelectValue placeholder="Здоровье" />
           </UiSelectTrigger>
           <UiSelectContent>
@@ -106,7 +106,7 @@
         <span class="text-sm text-slate-500">Другое</span>
 
         <UiSelect>
-          <UiSelectTrigger class="w-[280px] bg-white">
+          <UiSelectTrigger class="bg-white">
             <UiSelectValue placeholder="Другое" />
           </UiSelectTrigger>
           <UiSelectContent>

@@ -78,7 +78,7 @@ import type { FormSubmitEvent } from "#ui/types";
 import { useAuthStore } from "~/store/auth.store";
 
 definePageMeta({
-  middleware: ["profile-auth", "cat-auth"],
+  middleware: "profile-auth",
 });
 
 const authStore = useAuthStore();

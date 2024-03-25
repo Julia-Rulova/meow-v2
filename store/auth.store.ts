@@ -36,7 +36,7 @@ export const useAuthStore = defineStore("auth", {
       this.isAuth = true;
 
       const loggenIn = useCookie<boolean>("loggenIn");
-      loggenIn.value = true;
+      loggenIn.value = false;
     },
   },
 });

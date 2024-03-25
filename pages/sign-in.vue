@@ -43,7 +43,7 @@ import type { FormSubmitEvent } from "#ui/types";
 import { useCatsStore } from "~/store/cats.store";
 
 definePageMeta({
-  middleware: "auth",
+  middleware: "profile-auth",
 });
 
 const catStore = useCatsStore();

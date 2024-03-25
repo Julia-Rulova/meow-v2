@@ -77,13 +77,8 @@ import { z } from "zod";
 import type { FormSubmitEvent } from "#ui/types";
 import { useAuthStore } from "~/store/auth.store";
 
-async function onSubmit(event: FormSubmitEvent<Schema>) {
-  // Do something with data
-  console.log(event.data);
-}
-
 definePageMeta({
-  middleware: "auth",
+  middleware: ["profile-auth", "cat-auth"],
 });
 
 const authStore = useAuthStore();
@@ -109,4 +104,10 @@ const schema = z.object({
 type Schema = z.output<typeof schema>;
 
 const stateForm = reactive({ ...user.value });
+
+async function onSubmit(event: FormSubmitEvent<Schema>) {
+  // Do something with data
+  console.log(event.data);
+}
 </script>
+~/store/profile-auth.store

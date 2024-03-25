@@ -32,7 +32,11 @@ export const useAuthStore = defineStore("auth", {
       };
 
       this.user = newUser;
+
       this.isAuth = true;
+
+      const loggenIn = useCookie<boolean>("loggenIn");
+      loggenIn.value = true;
     },
   },
 });

@@ -77,7 +77,7 @@
 import { useCatsStore } from "~/store/cats.store";
 
 definePageMeta({
-  middleware: "auth",
+  middleware: "cat-auth",
 });
 
 const catsStore = useCatsStore();

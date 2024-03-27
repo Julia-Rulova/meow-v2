@@ -2,48 +2,45 @@
   <section
     class="flex flex-col gap-6 justify-between w-full flex-1 min-h-screen"
   >
-    <div class="flex flex-col gap-6">
+    <div class="flex flex-col gap-3 lg:gap-6">
       <LayoutHeader></LayoutHeader>
 
       <UHorizontalNavigation
         :links="links"
-        class="border-t border-gray-200 dark:border-gray-800 px-3 bg-white fixed bottom-0 z-10 lg:border-b lg:px-8 lg:bg-transparent lg:static lg:border-t-0"
+        class="border-b px-8 bg-transparent static border-t-0"
         :ui="{
-          base: 'text-base',
+          base: 'justify-center sm:justify-start md:text-base',
+          label: 'hidden sm:inline',
+          inner: 'flex-1 sm:flex-auto',
+          container: 'w-full sm:w-auto',
         }"
       />
 
       <div class="wrapper">
         <LayoutSort class="hidden lg:flex"></LayoutSort>
 
-        <div class="mx-5 bg-white w-full px-3 py-4">
-          <UiSheet>
-            <UiSheetTrigger as-child>
-              <UiButton
-                class="flex lg:hidden sticky top-4 right-0 left-4 z-10 gap-2 w-40"
-              >
-                <span class="text-white text-md">Фильтры</span>
+        <UiSheet>
+          <UiSheetTrigger as-child>
+            <UiButton class="flex lg:hidden gap-2 w-40">
+              <span class="text-white text-md">Фильтры</span>
 
-                <Icon
-                  name="mage:filter"
-                  height="20"
-                  width="20"
-                  style="color: white"
-                ></Icon>
-              </UiButton>
-            </UiSheetTrigger>
-            <UiSheetContent
-              side="left"
-              class="bg-white w-full sm:w-3/4 lg:hidden"
-            >
-              <LayoutSort></LayoutSort>
-            </UiSheetContent>
-          </UiSheet>
-        </div>
+              <Icon
+                name="mage:filter"
+                height="20"
+                width="20"
+                style="color: white"
+              ></Icon>
+            </UiButton>
+          </UiSheetTrigger>
+          <UiSheetContent
+            side="left"
+            class="bg-white w-full sm:w-3/4 lg:hidden"
+          >
+            <LayoutSort></LayoutSort>
+          </UiSheetContent>
+        </UiSheet>
 
-        <div
-          class="flex flex-col align-center justify-center w-full px-5 lg:p-0"
-        >
+        <div class="flex flex-col align-center justify-center w-full">
           <CustomPreloader v-if="catsStore.loading"></CustomPreloader>
 
           <div
@@ -65,6 +62,23 @@
     </div>
 
     <LayoutFooter></LayoutFooter>
+
+    <UButton
+      size="sm"
+      color="primary"
+      variant="solid"
+      label="Button"
+      :trailing="false"
+      class="rounded-full py-2 fixed bottom-5 right-5"
+      @click="scrollToTop"
+    >
+      <Icon
+        name="majesticons:arrow-up"
+        width="28"
+        height="28"
+        style="color: white"
+      ></Icon>
+    </UButton>
   </section>
 </template>
 
@@ -92,6 +106,13 @@ const links = [
     to: "/donate",
   },
 ];
+
+const scrollToTop = () => {
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth",
+  });
+};
 </script>
 
 <style scoped>
@@ -112,8 +133,9 @@ const links = [
   .wrapper {
     display: flex;
     flex-direction: column;
-    padding: 0;
+    padding: 0 20px;
     align-items: flex-end;
+    gap: 15px;
   }
 }
 </style>

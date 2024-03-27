@@ -2,7 +2,7 @@
   <section class="page flex">
     <slot />
 
-    <NuxtLink to="/donate" class="fixed bottom-10 right-5 rounded-full p-1.5 bg-primary/30 z-20">
+    <!-- <NuxtLink to="/donate" class="fixed bottom-6 right-3 rounded-full p-1.5 bg-primary/30 z-20">
       <div class="border border-primary flex-1 absolute top-1.5 right-1.5 left-1.5 bottom-1.5 rounded-full animate-button-pulse"</div>
       <UButton
         size="sm"
@@ -19,7 +19,7 @@
           style="color: white"
         ></Icon>
       </UButton>
-    </NuxtLink>
+    </NuxtLink> -->
   </section>
 </template>
 

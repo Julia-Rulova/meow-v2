@@ -2,13 +2,13 @@
   <section
     class="flex flex-col gap-6 justify-between w-full flex-1 min-h-screen"
   >
-    <div class="flex flex-col gap-6">
+    <div class="flex flex-col gap-3 md:gap-6">
       <LayoutHeader></LayoutHeader>
 
-      <div class="px-9 flex flex-row gap-14">
+      <div class="flex flex-col gap-6 md:gap-14 md:flex-row md:px-9">
         <UVerticalNavigation
           :links="links"
-          class="border-r border-gray-200 h-[85vh] sticky top-5 left-8 w-64"
+          class="hidden border-r border-gray-200 h-[85vh] sticky top-5 left-8 w-1/5 md:block"
           :ui="{
             active: 'border-r border-r-2 border-r-primary rounded-r-none',
           }"
@@ -22,10 +22,15 @@
           </template>
         </UVerticalNavigation>
 
+        <UHorizontalNavigation
+          :links="links"
+          class="md:hidden border-b px-8 bg-transparent static border-t-0"
+        />
+
         <UForm
           :schema="schema"
           :state="stateForm"
-          class="w-1/2 flex flex-col gap-3"
+          class="flex flex-col gap-3 w-full px-9 md:px-0 md:w-4/5 lg:w-1/2"
           @submit="onSubmit"
         >
           <UFormGroup label="Аватар" name="ava">
@@ -60,7 +65,7 @@
             block
             size="md"
             :disabled="JSON.stringify(user) === JSON.stringify(stateForm)"
-            class="w-60 mt-10"
+            class="mt-4 w-fit sm:w-60 md:mt-10"
           >
             Сохранить
           </UButton>

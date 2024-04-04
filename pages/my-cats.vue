@@ -2,13 +2,13 @@
   <section
     class="flex flex-col gap-6 justify-between w-full flex-1 min-h-screen"
   >
-    <div class="flex flex-col gap-6">
+    <div class="flex flex-col gap-3 md:gap-6">
       <LayoutHeader></LayoutHeader>
 
-      <div class="px-9 flex flex-row gap-14">
+      <div class="flex flex-col gap-6 lg:px-9 lg:flex-row">
         <UVerticalNavigation
           :links="links"
-          class="border-r border-gray-200 h-[85vh] sticky top-5 left-8 w-64"
+          class="hidden border-r border-gray-200 h-[85vh] sticky top-5 left-8 w-1/5 lg:block"
           :ui="{
             active: 'border-r border-r-2 border-r-primary rounded-r-none',
           }"
@@ -22,7 +22,12 @@
           </template>
         </UVerticalNavigation>
 
-        <div class="flex-1 flex flex-col gap-4">
+        <UHorizontalNavigation
+          :links="links"
+          class="lg:hidden border-b px-8 bg-transparent static border-t-0"
+        />
+
+        <div class="flex-1 flex flex-col gap-4 px-4 lg:px-0">
           <div class="w-full flex flex-row gap-3">
             <UInput
               icon="i-heroicons-magnifying-glass-20-solid"
@@ -41,7 +46,7 @@
                   height="20"
                   style="color: white"
                 ></Icon>
-                <span class="text-white">Добавить котика</span>
+                <span class="text-white hidden md:inline">Добавить котика</span>
               </UiButton>
             </ModalEditCat>
           </div>
@@ -60,7 +65,10 @@
             <img src="../public/cat.svg" class="w-48 object-cover mt-8" />
           </div>
 
-          <ul v-else class="flex flex-col gap-4 w-full">
+          <ul
+            v-else
+            class="grid grid-cols-1 sm:grid-cols-2 gap-4 w-full lg:flex lg:flex-col"
+          >
             <li v-for="cat in cats" :key="cat.$id" class="flex">
               <CatsCardProfile :cat="cat"></CatsCardProfile>
             </li>

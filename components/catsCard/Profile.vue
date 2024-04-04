@@ -1,21 +1,23 @@
 <template>
   <UiCard class="w-full">
-    <UiCardContent class="flex flex-row justify-between items-center gap-6 p-4">
-      <div class="flex flex-row gap-6">
+    <UiCardContent
+      class="flex flex-col justify-between items-start gap-3 p-4 lg:flex-row lg:items-center lg:gap-6"
+    >
+      <div class="w-full flex gap-3 flex-col lg:flex-row lg:gap-6">
         <img
           :src="props.cat.img"
           :alt="props.cat.name"
-          class="w-28 h-28 object-cover rounded"
+          class="h-56 object-cover rounded lg:w-28 lg:h-28"
         />
 
-        <ul class="grid grid-cols-3 gap-y-3 gap-x-4">
+        <ul class="grid grid-cols-2 gap-y-3 gap-x-4 lg:grid-cols-3">
           <li class="flex flex-col">
-            <span class="text-sm text-slate-500"> Имя:</span>
-            <span> {{ props.cat.name }}</span>
+            <span class="text-xs text-slate-500 sm:text-sm"> Имя:</span>
+            <span class="text-sm sm:text-base"> {{ props.cat.name }}</span>
           </li>
           <li class="flex flex-col">
-            <span class="text-xs text-slate-500"> Возраст:</span>
-            <span>
+            <span class="text-xs text-slate-500 sm:text-sm"> Возраст:</span>
+            <span class="text-sm sm:text-base">
               {{
                 props.cat.years +
                 " " +
@@ -28,27 +30,37 @@
             </span>
           </li>
           <li class="flex flex-col">
-            <span class="text-sm text-slate-500"> Вакцинация:</span>
-            <span> {{ props.cat.vaccine ? "Есть" : "Нет" }}</span>
+            <span class="text-xs text-slate-500 sm:text-sm"> Вакцинация:</span>
+            <span class="text-sm sm:text-base">
+              {{ props.cat.vaccine ? "Есть" : "Нет" }}
+            </span>
           </li>
           <li class="flex flex-col">
-            <span class="text-sm text-slate-500"> Отношение к людям: </span>
-            <span> {{ props.cat.relation_people }}</span>
+            <span class="text-xs text-slate-500 sm:text-sm">
+              Отношение к людям:
+            </span>
+            <span class="text-sm sm:text-base">
+              {{ props.cat.relation_people }}
+            </span>
           </li>
           <li class="flex flex-col">
-            <span class="text-sm text-slate-500">
+            <span class="text-xs text-slate-500 sm:text-sm">
               Отношение к другим животным:
             </span>
-            <span> {{ props.cat.relation_animals }}</span>
+            <span class="text-sm sm:text-base">
+              {{ props.cat.relation_animals }}
+            </span>
           </li>
           <li class="flex flex-col">
-            <span class="text-sm text-slate-500"> Телефон для связи: </span>
-            <span> {{ props.cat.phone }}</span>
+            <span class="text-xs text-slate-500 sm:text-sm">
+              Телефон для связи:
+            </span>
+            <span class="text-sm sm:text-base"> {{ props.cat.phone }}</span>
           </li>
         </ul>
       </div>
 
-      <div class="flex flex-col gap-2">
+      <div class="flex flex-row gap-2 lg:flex-col">
         <ModalEditCat :cat="props.cat" :title="'Изменить котика'">
           <UiButton variant="outline">Изменить</UiButton>
         </ModalEditCat>
